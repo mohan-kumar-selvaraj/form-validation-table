@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <form autocomplete="off" name="MyForm" onsubmit="submit1(event)">
+          <div class="mb-2">
+            <h1 style="margin-bottom: 50px;">Registeration Form</label>
+          </div>
+          <div class="mb-2">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              name="u_username"
+              required
+              style="background: white;"
+            />
+            <small class="text-danger" id="username-validation"></small>
+          </div>
+          <div class="mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              name="u_name"
+              required
+              style="background: white;"
+            />
+            <small class="text-danger" id="name-validation"></small>
+          </div>
+          <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              name="u_email"
+              required
+              style="background: white;"
+            />
+            <small class="text-danger" id="email-validation"></small>
+          </div>
+          <div class="mb-2">
+            <label for="dob" class="form-label">DOB</label><br>
+            <input type="date" class="form-control" id="dob" name="dob" style="background: white;" required><br>
+            <small class="text-danger" id="dob-validation"></small>
+          </div>
+          <div class="mb-2">
+            <label for="contact-number" class="form-label"
+              >Contact Number</label
+            >
+            <input
+              type="text"
+              id="cn"
+              class="form-control"
+              name="u_contact_number"
+              required
+              style="background: white;"
+            />
+            <small class="text-danger" id="cn-validation"></small>
+          </div>
+
+          <div class="mb-2">
+            <label for="pan" class="form-label">PAN Number</label>
+            <input
+              type="text"
+              id="pan"
+              class="form-control"
+              name="u_pan"
+              required
+              style="background: white;"
+            />
+            <small class="text-danger" id="pan-validation"></small>
+          </div>
+
+          <div class="mb-2">
+            <label for="occupation" class="form-label"
+              >Occupation (Optional)</label
+            >
+            <input
+              type="text"
+              id="occupation"
+              class="form-control"
+              name="u_occupation"
+              style="background: white;"
+            />
+            <small class="text-danger" id="occupation-validation"></small>
+          </div>
+          <div class="mb-2 position-relative">
+            <label for="password" class="form-label">Password</label>
+            <div style="position: relative">
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                name="u_pass"
+                required
+                style="background: white;"
+              />
+              <i
+                class="far fa-eye"
+                id="togglePassword"
+                style="
+                  position: absolute;
+                  right: 10px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+                "
+              ></i>
+            </div>
+            <small class="text-danger" id="password-validation"></small>
+          </div>
+
+          <div class="mb-2">
+            <label for="validationServer04" class="form-label">Gender</label>
+            <select
+              class="form-select"
+              id="gender"
+              aria-describedby="validationServer04Feedback"
+              style="background: white;"
+              required
+            >
+              <option selected disabled value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Others</option>
+            </select>
+          </div>
+
+          <div class="mb-2">
+            <label for="validationServer04" class="form-label">Education</label>
+            <select
+              class="form-select"
+              id="education"
+              aria-describedby="validationServer04Feedback"
+              style="background: white;"
+              required
+            >
+              <option selected disabled value="">Select Education</option>
+              <option>B.E/B.Tech</option>
+              <option>M.E/M.Tech</option>
+              <option>PhD</option>
+              <option>Others</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="imageLabel" class="form-label">Image</label><br>
+            <input type='file' class="form-control" id="uploadBannerImage" accept="image/jpeg, image/png" onchange="uploadImage(this);" required />
+            <small class="text-danger" id="image-validation"></small>
+          </div>
+          <div class="mb-2">
+            <img id="displayImage" />
+          </div>
+          <div class="mb-2">
+            <input
+            style="margin-top: 20px;"
+              type="submit"
+              id="submit"
+              class="btn btn-success"
+              name="u_login"
+            />
+          </div>
+        </form>
+      </div>
+      <div>
+        <h1 style="margin-top: 20px;">Search</h1>
+        <input type="text" id="search" class="form-control" name="search" />
+        <table class="table">
+          <tbody id="tbody">
+          </tbody>
+        </table>
+        <img id="displayImage1" />
+        <button style="width: 100%; height: 100%; margin-bottom: 50PX;" class="btn btn-sm btn-danger float-md-right" id="clear">Clear Table Data</button>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="register.js"></script>
+  </body>
+</html>
